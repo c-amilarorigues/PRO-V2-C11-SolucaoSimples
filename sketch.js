@@ -11,22 +11,22 @@ function setup(){
   
   createCanvas(400,400);
   
-// Moving background
+// Fundo em movimento
 path=createSprite(200,200);
 path.addImage(pathImg);
 path.velocityY = 4;
 path.scale=1.2;
 
-//creating boy running
+//criando menino que corre
 boy = createSprite(180,340,30,30);
 boy.scale=0.08;
 boy.addAnimation("JakeRunning",boyImg);
   
-// create left Boundary
+// crie Boundary (Limite) esquerdo
 leftBoundary=createSprite(0,0,100,800);
 leftBoundary.visible = false;
 
-//create right Boundary
+//crie Boundary direito
 rightBoundary=createSprite(410,0,100,800);
 rightBoundary.visible = false;
 }
@@ -35,7 +35,7 @@ function draw() {
   background(0);
   path.velocityY = 4;
   
-  // boy moving on Xaxis with mouse
+  // menino se movendo no eixe X com o mouse
   boy.x = World.mouseX;
   
   edges= createEdgeSprites();
@@ -43,7 +43,7 @@ function draw() {
   boy.collide(leftBoundary);
   boy.collide(rightBoundary);
   
-  //code to reset the background
+  //código para reiniciar o fundo
   if(path.y > 400 ){
     path.y = height/2;
   }
